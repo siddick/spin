@@ -1,12 +1,12 @@
-<% module_namespacing do -%>
 class <%= controller_class_name %>Controller < ApplicationController
   # GET <%= route_url %>
   # GET <%= route_url %>.xml
   def index
-    @<%= plural_table_name %> = <%= orm_class.all(class_name) %>
+    @<%= plural_table_name %> = <%= orm_class.all(class_name) %>.search( params ).sort_records( params[:_sort], params[:_direction] ).paginate( :per_page => params[:_per_page] || 5, :page => params[:_page] )
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js   # index.js.erb
       format.xml  { render :xml => @<%= plural_table_name %> }
     end
   end
@@ -82,4 +82,3 @@ class <%= controller_class_name %>Controller < ApplicationController
     end
   end
 end
-<% end -%>
