@@ -23,6 +23,7 @@ EOF
 
   s.add_dependency 'jquery-rails'
   s.add_dependency 'will_paginate', '>= 3.0.pre2'
+  s.add_dependency 'formtastic'
 #  s.add_development_dependency 'rake'
 
 #  s.add_development_dependency 'fcgi'

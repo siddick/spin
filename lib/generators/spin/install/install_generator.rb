@@ -3,7 +3,11 @@ module Spin
     class InstallGenerator < ::Rails::Generators::Base
       desc "This generator install Spin dependences"
       class_option "install", :type => :string, :default => "install"
-      hook_for "install", :in => "jquery"
+      class_option "jquery", :type => :string, :default => "jquery"
+      class_option "formtastic", :type => :string, :default => "formtastic"
+	
+      hook_for "jquery", :in => "jquery", :as => "install"
+      hook_for "formtastic", :in => "formtastic", :as => "install"
 
       source_root File.expand_path('../templates', __FILE__)
 

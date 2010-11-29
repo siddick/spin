@@ -2,7 +2,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   # GET <%= route_url %>
   # GET <%= route_url %>.xml
   def index
-    @<%= plural_table_name %> = <%= orm_class.all(class_name) %>.search( params ).sort_records( params[:_sort], params[:_direction] ).paginate( :per_page => params[:_per_page] || 5, :page => params[:_page] )
+    @<%= plural_table_name %> = <%= class_name %>.search( params ).sort_records( params[:_sort], params[:_direction] ).paginate( :per_page => params[:_per_page] || 5, :page => params[:_page] )
 
     respond_to do |format|
       format.html # index.html.erb

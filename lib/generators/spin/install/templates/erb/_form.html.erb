@@ -1,3 +1,5 @@
+
+
 <%%= form_for(@<%= singular_table_name %>) do |f| %>
   <%% if @<%= singular_table_name %>.errors.any? %>
     <div id="error_explanation">
@@ -20,4 +22,17 @@
   <div class="actions">
     <%%= f.submit %>
   </div>
+<%% end %>
+
+# Testing
+<%%= semantic_form_for( @<%= singular_table_name %> ) do |f| %>
+
+  <% for attribute in attributes -%>
+  <%%= form.input :<%= attribute.name %> %>
+  <% end -%>
+
+  <%%= form.buttons do %>
+    <%%= form.commit_button %>
+  <%% end %>
+
 <%% end %>
