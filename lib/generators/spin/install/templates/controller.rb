@@ -1,4 +1,7 @@
 class <%= controller_class_name %>Controller < ApplicationController
+
+  layout "spin"
+
   # GET <%= route_url %>
   # GET <%= route_url %>.xml
   def index

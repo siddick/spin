@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SPIN</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+  <div id="main_container" >
+
+    <div class="header" >
+      <div class="logo" > <h1> SPIN </h1> </div>
+      <div class="top_menu" > </div>
+    </div>
+
+    <div class="main_content" >
+      <div class="menu" >
+        <ul> 
+          <li> 
+            <a href=# >Home</a>
+            <ul> 
+              <li> <a href=# >Basic 1</a> </li>
+              <li> <a href=# >Basic 2</a> </li>
+              <li> <a href=# >Basic 3</a> </li>
+            </ul>
+          </li>
+          <li> <a href=# >Setting</a> </li>
+        <ul>
+      </div> 
+      <div class="center_content" >
+        <div class="left_content" >
+          <div class="sub_menu" >
+            <ul> 
+              <li> <a href=# >Home</a> </li>
+              <li> <a href=# >Setting</a> </li>
+            </ul>
+          </div>
+        </div>
+        <div class="right_content" >
+          <%= yield %>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="footer" >
+      <div class="footer_left" > Powered by Sidro </div>
+      <div class="footer_right" >  </div>
+    </div>
+
+  </div>
+</body>
+</html>
