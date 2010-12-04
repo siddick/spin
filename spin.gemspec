@@ -10,7 +10,6 @@ EOF
   s.files           = Dir['{bin/*,lib/**/*,test/**/*}'] +
                         %w(COPYING spec.gemspec Rakefile README)
   s.bindir          = 'bin'
-#  s.executables     << 'rackup'
   s.require_path    = 'lib'
   s.has_rdoc        = true
   s.extra_rdoc_files = ['README.rdoc' ]
@@ -21,13 +20,6 @@ EOF
   s.homepage        = 'http://github.com/siddick/spin'
 #  s.rubyforge_project = 'rack'
 
-  s.add_dependency 'jquery-rails'
   s.add_dependency 'will_paginate', '>= 3.0.pre2'
   s.add_dependency 'formtastic'
-#  s.add_development_dependency 'rake'
-
-#  s.add_development_dependency 'fcgi'
-#  s.add_development_dependency 'memcache-client'
-#  s.add_development_dependency 'mongrel'
-#  s.add_development_dependency 'thin'
 end

@@ -1,4 +1,3 @@
-require 'jquery-rails'
 require 'will_paginate'
 require 'formtastic'
 
