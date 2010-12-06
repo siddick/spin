@@ -19,6 +19,7 @@ module Spin
         copy_file 'active_record.rb', 'lib/templates/active_record/model/model.rb'
         copy_file 'data_mapper.rb', 'lib/templates/data_mapper/model/model.rb'
         copy_file 'initializer.rb', 'config/initializers/spin.rb'
+        copy_file 'menu.yml', 'config/menu.yml'
       end
 
       def copy_layouts

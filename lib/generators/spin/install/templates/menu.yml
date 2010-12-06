@@ -1,0 +1,14 @@
+management:
+  type: admin
+  display: Management
+  url: "#"
+users:
+  type: admin
+  display: Users
+  parent_menu: management
+  url: "#"
+groups:
+  type: admin
+  display: Groups
+  parent_menu: management
+  url: "#"
