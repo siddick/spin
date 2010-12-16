@@ -1,13 +1,24 @@
 <h1>Listing <%= plural_table_name %></h1>
+<div id="content-main" > 
+  <ul class="object-tools" >
+    <li> <%%= link_to 'Add <%= human_name %>', new_<%= singular_table_name %>_path %> </li>
+  </ul>
+  <div class="module" id="changelist">
+    <div id="toolbar">
+      <%%= form_tag <%= plural_table_name %>_path, :method => 'get' do %>
+        <div>
+          <%%= text_field_tag "name", params[:name] %>
+          <%%= submit_tag "Search", :name => nil, :disable_with => "searching.." %>
+        </div>
+      <%% end %>
+    </div>
 
-<%%= form_tag <%= plural_table_name %>_path, :method => 'get', :id => "<%= plural_table_name %>_search" do %>
-  <%%= text_field_tag "name", params[:name] %>
-  <%%= submit_tag "Search", :name => nil %>
-  <div id='spin-container' >
-    <%%= render "page" %>
-  <div>
-<%% end %>
+    <%%= form_tag <%= singular_table_name %>_path( :id => 0 )  do %>
+      <div class="actions">
+        <label>Action: <%%= submit_tag "delete", :value => "delete", :name => "_method", :confirm => "Sure to delete?", :disable_with => "deleting.." %></label>
+      </div>
+      <%%= render "page" %>
+    <%% end %>
 
-<br />
-
-<%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path %>
+    <div class="clear" /> 
+</div>

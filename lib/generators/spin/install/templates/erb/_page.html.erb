@@ -1,23 +1,23 @@
-<table>
+<table cellspacing="0" id="result_list" >
+  <thead>
   <tr>
-<% for attribute in attributes -%>
-  <th><%%= sortable_link( "<%= attribute.name %>", "<%= attribute.human_name %>" ) %></th>
-<% end -%>
-    <th></th>
-    <th></th>
-    <th></th>
+  <% for attribute in attributes -%>
+    <th class="action-checkbox-column" ><%%= sortable_link( "<%= attribute.name %>", "<%= attribute.human_name %>" ) %></th>
+  <% end -%>
   </tr>
+  </thead>
 
-<%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
-  <tr>
-<% for attribute in attributes -%>
-    <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
-<% end -%>
-    <td><%%= link_to 'Show', <%= singular_table_name %> %></td>
-    <td><%%= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
-    <td><%%= link_to 'Destroy', <%= singular_table_name %>, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<%% end %>
+  <tbody>
+  <%% @<%= plural_table_name %>.each_with_index do |<%= singular_table_name %>,i| %>
+    <tr class='<%%= (i%2) == 1 ? 'row1': 'row2' %>' >
+    <% for attribute in attributes -%>
+      <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+    <% end -%>
+    </tr>
+  <%% end %>
+  </tbody>
 </table>
 
-<%%= will_paginate @<%= plural_table_name %> %>
+<p class="paginator" >
+  <%%= will_paginate @<%= plural_table_name %> %>
+</p>

@@ -2,7 +2,7 @@
 
   <%%= f.inputs do %>
     <% for attribute in attributes -%>
-    <%%= f.input :<%= attribute.name %> %>
+    <%%= f.input :<%= attribute.name.sub(/_id$/, '') %> %>
     <% end -%>
   <%% end %>  
 
