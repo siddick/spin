@@ -19,6 +19,20 @@ module Spin
         link_to display_key, params.merge( :_page => nil, :_sort => key, :_direction => 'asc' ) 
       end
     end
+
+    def sortable_header( key, display_key = nil )
+      display_key ||= key
+      sort_direction = params[:_direction] == 'asc' ? 'desc' : 'asc'
+      output = 
+        if( key == params[:_sort].to_s )
+          "<th class='sorted #{sort_direction}ending' >" +
+            link_to( display_key, params.merge( :_page => nil, :_direction =>  sort_direction ) ) + "</th>"
+        else
+          "<th>" + link_to( display_key, params.merge( :_page => nil, :_sort => key, :_direction => 'asc' ) ) + "</th>"
+        end
+      output.html_safe
+    end
+
   end
 end
     

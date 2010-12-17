@@ -11,7 +11,7 @@ class <%= class_name %> < <%= parent_class_name.classify %>
   end
 
   def self.search( values )
-    scoped
+    	scoped
   end
 
 end

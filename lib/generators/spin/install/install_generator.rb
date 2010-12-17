@@ -28,7 +28,7 @@ module Spin
         }
         copy_file 'public/spin-base.css', 'public/stylesheets/spin-base.css'
         copy_file 'public/spin-changelists.css', 'public/stylesheets/spin-changelists.css'
-        copy_file 'public/spin-menu.css', 'public/stylesheets/spin-changelists.css'
+        copy_file 'public/spin-menu.css', 'public/stylesheets/spin-menu.css'
       end
 
       def copy_layouts
