@@ -15,11 +15,20 @@ module Spin
                     "lib/templates/erb/scaffold/#{view_file}.html.erb" )
         }
         copy_file 'erb/spin.html.erb', 'app/views/layouts/spin.html.erb'
-        copy_file 'public/spin.css', 'public/stylesheets/spin.css'
         copy_file 'active_record.rb', 'lib/templates/active_record/model/model.rb'
         copy_file 'data_mapper.rb', 'lib/templates/data_mapper/model/model.rb'
         copy_file 'initializer.rb', 'config/initializers/spin.rb'
         copy_file 'menu.yml', 'config/menu.yml'
+
+
+        %w(admin gis).each{|dir|
+          Dir[ File.dirname(__FILE__) + "/templates/public/images/#{dir}/*" ].each{|file|
+            copy_file file, "public/images/#{dir}/#{File.basename(file)}"
+          }
+        }
+        copy_file 'public/spin-base.css', 'public/stylesheets/spin-base.css'
+        copy_file 'public/spin-changelists.css', 'public/stylesheets/spin-changelists.css'
+        copy_file 'public/spin-menu.css', 'public/stylesheets/spin-changelists.css'
       end
 
       def copy_layouts

@@ -5,8 +5,9 @@
   </ul>
   <div class="module" id="changelist">
     <div id="toolbar">
-      <%%= form_tag <%= plural_table_name %>_path, :method => 'get' do %>
+      <%%= form_tag <%= plural_table_name %>_path, :method => 'get', :id => 'changelist-search' do %>
         <div>
+          <label for="searchbar" ><%%= image_tag( "admin/icon_searchbox.png" ) %></label>
           <%%= text_field_tag "name", params[:name], :size => 10 %>
           <%%= submit_tag "Search", :name => nil, :disable_with => "searching.." %>
         </div>

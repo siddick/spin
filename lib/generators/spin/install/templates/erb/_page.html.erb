@@ -1,18 +1,24 @@
 <table cellspacing="0" id="result_list" >
   <thead>
   <tr>
+  <th class="action-checkbox-column" ><input type="checkbox" id="action-toggle" /></th>
   <% for attribute in attributes -%>
-    <th class="action-checkbox-column" ><%%= sortable_link( "<%= attribute.name %>", "<%= attribute.human_name %>" ) %></th>
+    <th><%%= sortable_link( "<%= attribute.name %>", "<%= attribute.human_name %>" ) %></th>
   <% end -%>
   </tr>
   </thead>
 
   <tbody>
   <%% @<%= plural_table_name %>.each_with_index do |<%= singular_table_name %>,i| %>
-    <tr class='<%%= (i%2) == 1 ? 'row1': 'row2' %>' >
-    <% for attribute in attributes -%>
-      <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
-    <% end -%>
+    <tr class='<%%= (i%2) == 0 ? 'row1': 'row2' %>' >
+      <td><%%= check_box_tag "ids[]", <%= singular_table_name %>.id  %></td>  
+      <% attributes.each_with_index{|attribute,i| -%>
+        <% if( i == 0 ) %>
+          <td><%%= link_to <%= singular_table_name %>.<%= attribute.name %>, <%= singular_table_name %> %></td>
+        <% else %>
+          <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+        <% end %>
+      <% } -%>
     </tr>
   <%% end %>
   </tbody>
