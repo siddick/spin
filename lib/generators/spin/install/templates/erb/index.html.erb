@@ -8,8 +8,10 @@
       <%%= form_tag <%= plural_table_name %>_path, :method => 'get', :id => 'changelist-search' do %>
         <div>
           <label for="searchbar" ><%%= image_tag( "admin/icon_searchbox.png" ) %></label>
-          <%%= text_field_tag "q", params[:q], :size => 25 %>
-          <%%= submit_tag "Search", :name => nil, :disable_with => "searching.." %>
+          <%%= text_field_tag "q", params["q"], :size => 25 %>
+          <%%= hidden_field_tag( "_sort", params["_sort"] ) if params["_sort"] -%>
+          <%%= hidden_field_tag( "_direction", params["_direction"] ) if params["_sort"] -%>
+          <%%= submit_tag "Search", :name => nil, :disable_with => "Searching.." %>
         </div>
       <%% end %>
     </div>

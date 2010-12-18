@@ -11,7 +11,15 @@ class <%= class_name %> < <%= parent_class_name.classify %>
   end
 
   def self.search( values )
-    	scoped
+    if( values["q"] and values["q"] != "" )
+      conds = columns.find_all{|c| c.type == :string }.collect{|c| " #{c.name} like ? " }
+      if( conds.size > 0 )
+        ary   = Array.new( conds.size, "%#{values["q"]}%" )
+        ary.unshift( conds.join( " or " ) )
+        return where( ary )
+      end
+    end
+    scoped
   end
 
 end
