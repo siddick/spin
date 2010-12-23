@@ -1,4 +1,4 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in sidro.gemspec
+# Specify your gem's dependencies in spin.gemspec
 gemspec

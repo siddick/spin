@@ -1,2 +1,20 @@
-== SPIN has useful generators
+== SPIN 
+Provide a flexible template system for the Scaffold Generator. Spin provide a default layout and scaffold template.
+It provide a Interface look like django admin interface. The spin uses the will_paginate for the pagination and formtastic for the forms.
 
+=== INSTALL
+  # add the following line in the Gemfile
+  gem 'spin', :git => 'git://github.com/siddick/spin.git'
+
+  # To install the layouts and scaffold templates
+  rails g spin:install
+
+This will install the template that override the template that are used by the scaffold. The templates will be install in the directory RAILS_ROOT/lib/templates/ .
+You can customise the template, layout and css files as you need it.
+  
+== Working with spin
+  # New template and layout will be apply for the scaffold
+  rails g scaffold post title:string content:text 
+
+  
+== Menu configuration
